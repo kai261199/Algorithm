@@ -120,6 +120,26 @@ class LinkedList {
 
         return currentNode;
     }
+
+    reverse() {
+        // 1 -> 5 -> null
+        if (!this.head.next) {
+            return this.head;
+        }
+
+        var first = this.head;
+        var second = first.next;
+
+        while (second !== null) {
+            var temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+
+        this.head.next = null;
+        this.head = first;
+    }
 }
 
 const myLinkedList = new LinkedList(5);
@@ -133,5 +153,5 @@ myLinkedList.insert(2, 99);
 myLinkedList.insert(20, 88);
 
 // myLinkedList.remove(2);
-
+myLinkedList.reverse();
 myLinkedList.printList();
