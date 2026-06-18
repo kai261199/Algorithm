@@ -14,19 +14,18 @@ const graph = {
 };
 
 
-class Graph{
-    constructor(){
+class Graph {
+    constructor() {
         this.numberOfNodes = 0;
         this.adjacentList = {};
     }
 
     addVertext(node) {
-        // tạo một mảng rỗng cho mỗi node, để lưu trữ các node kề với nó
         this.adjacentList[node] = [];
         this.numberOfNodes++;
     }
 
-    addEdege(node1, node2){
+    addEdege(node1, node2) {
         // undeirected graph
         this.adjacentList[node1].push(node2);
         this.adjacentList[node2].push(node1);
